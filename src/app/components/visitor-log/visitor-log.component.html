@@ -1,18 +1,16 @@
 <div class="container">
-  <h1>Visitor List</h1>
+  <h1>{{ visitor.name }}'s Visit List</h1>
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>BID</th>
-        <th>Visits</th>
+        <th>Date</th>
+        <th>Comments</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let visitor of visitors">
-        <td>{{ visitor.name }}</td>
-        <td>{{ visitor.bid }}</td>
-        <td>Show Detail</td>
+      <tr *ngFor="let visit of visitor.visits">
+        <td>{{ visit.uploaded_date }}</td>
+        <td>{{ visit.comments }}</td>
       </tr>
     </tbody>
   </table>

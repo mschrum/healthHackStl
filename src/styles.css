@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+.default-bg {
+    background-image: url('assets/images/bg_1.jpg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.25);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.login-container {
+    width: 500px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+}
+
+.flex-container {
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-container {
+    background-color: white;
+    padding: 30px;
+}
+
+.login-btn {
+    width: 200px!important;
+    margin: auto;
+}
