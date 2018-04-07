@@ -5,6 +5,12 @@
         <a routerLink="/newLog">New Log</a>
         <a routerLink="/leaderboard">Leaderboard</a>
     </nav>
+    <button (click)="requestVisitors()">
+      Log Data
+    </button>
+    <button (click)="scan()">
+        Scan 15s
+      </button>
   <div class="site-content">
     <router-outlet></router-outlet>
   </div>

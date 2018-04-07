@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { VisitorLogComponent } from './components/visitor-log/visitor-log.component';
 import { NewLogComponent } from './components/new-log/new-log.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { VisitorService } from './services/visitor.service';
+import { Http } from '@angular/http';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    VisitorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
