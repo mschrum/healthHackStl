@@ -11,13 +11,13 @@ import { Visitor } from '../../../classes/visitor';
 })
 export class VisitorHistoryComponent implements OnInit {
 
-  visitor = new Visitor;
+  visits = new Array<Visit>();
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/visitor/').subscribe((data: Visitor) => {
-      this.visitor = data;
+    this.http.get('/allVisits/').subscribe((data: Array<Visit>) => {
+      this.visits = data;
     });
   }
 }

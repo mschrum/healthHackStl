@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'leaderboard', component: LeaderboardComponent },
   { path: 'newLog', component: NewLogComponent },
-  { path: 'visitorLog', component: VisitorHistoryComponent},
+  { path: 'visitHistory', component: VisitorHistoryComponent},
   { path: 'visitorLog/:id', component: VisitorLogComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
