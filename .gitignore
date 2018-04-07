@@ -11,7 +11,8 @@
 # private testing
 noble-test.js
 node-bluetooth-test.js
-routes/visitor.js
+
+/routes/visitor.js
 
 # IDEs and editors
 /.idea
