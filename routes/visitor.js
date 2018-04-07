@@ -18,6 +18,8 @@ Visitor.find(function(err, visitors) {
   console.log(knownBids);
 })
 
+/***************** BLUETOOTH SCANNING AND LOGIC *****************/ 
+
 noble.startScanning();
 noble.on('discover', function(device) {
 
@@ -39,6 +41,8 @@ noble.on('discover', function(device) {
     }
   }
 })
+
+/****************************************************************/ 
 
 /* GET ALL VisitorS */
 router.get('/', function(req, res, next) {
