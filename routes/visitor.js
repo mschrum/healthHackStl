@@ -31,13 +31,32 @@ noble.on('discover', function(device) {
   // } 
 
   let deviceName = device.advertisement.localName;
-  if (true) {
+  if (deviceName) {
     let deviceObject = {};
     deviceObject[deviceName] = device.advertisement;
     devices.push(deviceObject);
     console.log("Found " + deviceName);
+
     if (knownBids.indexOf(deviceName) >= 0) {
+      backendVisitors.forEach(visitor => {
+        if (deviceName === visitor.bid) {
+          let matchedVisitor = visitor;
+          let visitDate = new Date().toDateString();
+          let visit = {
+                        user: {name: matchedVisitor.name, id: matchedVisitor._id},
+                        uploaded_date: visitDate,
+                        comments: 'Bluetooth Check-In'
+                      }
+          matchedVisitor.visits.push(visit);
+          Visitor.findByIdAndUpdate(matchedVisitor._id, matchedVisitor, function(err, post) {
+            if (err) return next(err);
+            console.log("Bluetooth check-in logged! " + post);
+          });
+        }
+      });
+
       console.log('FOUND SOMEONE I RECOGNIZE!! : ' + deviceName);
+      
     }
   }
 })
