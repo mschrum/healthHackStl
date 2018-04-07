@@ -24,11 +24,11 @@ noble.startScanning();
 noble.on('discover', function(device) {
 
   // UNCOMMENT to get all keys of peripheral.advertisement bluetooth object
-  // for (let key in device.advertisement) {
-  //   if (device.advertisement.hasOwnProperty(key)) {
-  //       console.log(key + " : " + device.advertisement[key]);
-  //   }
-  // } 
+  for (let key in device.advertisement) {
+    if (device.advertisement.hasOwnProperty(key)) {
+        console.log(key + " : " + device.advertisement[key]);
+    }
+  } 
 
   let deviceName = device.advertisement.localName;
   if (deviceName) {
@@ -57,9 +57,9 @@ noble.on('discover', function(device) {
 
       console.log('FOUND SOMEONE I RECOGNIZE!! : ' + deviceName);
       
-    }
-  }
-})
+     }
+   }
+ })
 
 /****************************************************************/ 
 
