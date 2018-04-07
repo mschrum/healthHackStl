@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-visitor-log',
+  templateUrl: './visitor-log.component.html',
+  styleUrls: ['./visitor-log.component.css']
 })
-export class AppComponent {
-  title = 'app';
+export class VisitorLogComponent implements OnInit {
+
   visitors: any;
 
   constructor(private http: HttpClient) { }
