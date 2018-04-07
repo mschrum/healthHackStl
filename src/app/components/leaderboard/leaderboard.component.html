@@ -9,7 +9,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let visitor of visitors">
-        <td>{{ visitor.name }}</td>
+        <a [routerLink]="['/visitorLog/'+visitor._id]"><td>{{ visitor.name }}</td></a>
         <td>{{ visitor.visits.length }}</td>
       </tr>
     </tbody>
