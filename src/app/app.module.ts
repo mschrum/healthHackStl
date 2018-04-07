@@ -9,6 +9,8 @@ import { VisitorLogComponent } from './components/visitor-log/visitor-log.compon
 import { NewLogComponent } from './components/new-log/new-log.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { RegisterComponent } from './components/register/register.component';
     VisitorLogComponent,
     NewLogComponent,
     LeaderboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
