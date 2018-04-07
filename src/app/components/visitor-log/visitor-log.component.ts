@@ -12,12 +12,17 @@ import { Visitor } from '../../../classes/visitor';
 export class VisitorLogComponent implements OnInit {
 
   visitor = new Visitor;
+  // visits = new Array<Visit>();
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get('/visitor/' + this.route.snapshot.params['id']).subscribe((data: Visitor) => {
+      // this.visits = data.visits;
       this.visitor = data;
+      this.visitor.visits.sort(function(a, b) {
+        return (a.uploaded_date > b.uploaded_date) ? 1 : ((b.uploaded_date > a.uploaded_date) ? -1 : 0); });
+      this.visitor.visits.reverse();
     });
   }
 }

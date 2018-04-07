@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let visit of visits">
-            <td>{{ visit.user.name }}</td>
+            <a [routerLink]="['/visitorLog/'+visit.user.id]"><td>{{ visit.user.name }}</td></a>
             <td>{{ visit.uploaded_date | date:'mediumDate' }}</td>
             <td>{{ visit.uploaded_date | date:'shortTime' }}</td>
             <td>{{ visit.comments }}</td>                        

@@ -27,6 +27,7 @@ export class VisitorHistoryComponent implements OnInit {
       });
       this.visits.sort(function(a, b) {
         return (a.uploaded_date > b.uploaded_date) ? 1 : ((b.uploaded_date > a.uploaded_date) ? -1 : 0); });
+      this.visits.reverse();
       console.log(this.visits);
     });
 

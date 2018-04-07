@@ -44,7 +44,7 @@ export class NewLogComponent implements OnInit {
     this.visit = {user: {name: '', id: ''}, uploaded_date: 0, comments: ''};
     this.http.put('/visitor/' + visitorId, this.visitor)
       .subscribe(res => {
-          this.router.navigate(['/']);
+          this.router.navigate(['/newLog']);
         }, (err) => {
           console.log(err);
         }
