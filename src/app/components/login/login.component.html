@@ -1,5 +1,5 @@
 <div class="col-md probootstrap-animate login-container">
-  <form action="#" class="probootstrap-form" (ngSubmit)="f.form.valid && login()" #f="ngForm">
+  <form action="#" class="probootstrap-form" #f="ngForm">
     <div class="form-group">
       <div class="row mb-3">
         <div class="col-md">
@@ -20,7 +20,7 @@
             <label for="probootstrap-date-departure">Password</label>
             <div class="form-group">
               <label for="fname" class="sr-only sr-only-focusable">Password</label>
-              <input type="text" class="form-control" id="fname" name="fname">
+              <input type="password" class="form-control" id="fname" name="fname">
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@
       <!-- END row -->
       <div class="row">
         <div class="col-md">
-          <input [routerLink]="['/visitHistory']" type="submit" value="Submit" class="btn btn-success btn-block login-btn">
+          <input (click)="logIn()" [routerLink]="['/visitHistory']" type="submit" value="Submit" class="btn btn-success btn-block login-btn">
         </div>
       </div>
       <div class="row">

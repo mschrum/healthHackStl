@@ -9,6 +9,7 @@ import { VisitorLogComponent } from './components/visitor-log/visitor-log.compon
 import { NewLogComponent } from './components/new-log/new-log.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { VisitorService } from './services/visitor.service';
+import { AuthenticationService } from './services/authentication.service';
 import { Http } from '@angular/http';
 import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -36,7 +37,8 @@ import { VisitorHistoryComponent } from './components/visitor-history/visitor-hi
     FormsModule
   ],
   providers: [
-    VisitorService
+    VisitorService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

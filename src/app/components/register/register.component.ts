@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Visitor } from './../../../classes/visitor';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-register',
@@ -13,11 +14,13 @@ export class RegisterComponent implements OnInit {
 
   visitor = new Visitor;
 
-  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router, private http: HttpClient,
+    private authenticationService: AuthenticationService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   registerVisitor() {
+    this.authenticationService.setToken(true);
     this.visitor.visits = [];
     this.http.post('/visitor', this.visitor)
     .subscribe(res => {
