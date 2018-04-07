@@ -1,27 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 
+body {
+    font-family: "Work Sans", Arial, sans-serif; 
+}
+
 .default-bg {
-    background-image: url('assets/images/bg_1.jpg');
+    background-image: url('assets/images/login-bg.jpg');
     height: 100vh;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
 }
 
-.overlay {
+/* .overlay {
     position: absolute;
     background: rgba(0, 0, 0, 0.25);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+} */
+
+.navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: .3em;
 }
 
 .login-container {
-    width: 500px;
+    width: 450px;
     margin: auto;
     background-color: white;
     padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .flex-container {
@@ -31,12 +41,31 @@
     justify-content: center;
 }
 
+@media (min-width: 991px) {
+    .flex-container {
+        height: 70vh;
+    }
+}
+
 .container-bg {
     background-color: white;
     padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .login-btn {
-    width: 200px!important;
+    width: 100px!important;
     margin: auto;
+}
+
+nav .nav-item {
+    padding: 1.6em 1em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-weight: 400;
+}
+
+.create-link {
+    padding-top: 10px;
 }
