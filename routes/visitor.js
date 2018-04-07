@@ -2,6 +2,43 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Visitor = require('../models/Visitor.js');
+const noble = require('noble');
+
+const devices = [];
+let backendVisitors;
+let knownBids = [];
+
+Visitor.find(function(err, visitors) {
+  if (err) return next(err);
+  backendVisitors = visitors;
+  visitors.forEach(visitor => {
+    knownBids.push(visitor.bid);
+  });
+  console.log(backendVisitors);
+  console.log(knownBids);
+})
+
+noble.startScanning();
+noble.on('discover', function(device) {
+
+  // UNCOMMENT to get all keys of peripheral.advertisement bluetooth object
+  // for (let key in device.advertisement) {
+  //   if (device.advertisement.hasOwnProperty(key)) {
+  //       console.log(key + " : " + device.advertisement[key]);
+  //   }
+  // } 
+
+  let deviceName = device.advertisement.localName;
+  if (true) {
+    let deviceObject = {};
+    deviceObject[deviceName] = device.advertisement;
+    devices.push(deviceObject);
+    console.log("Found " + deviceName);
+    if (knownBids.indexOf(deviceName) >= 0) {
+      console.log('FOUND SOMEONE I RECOGNIZE!! : ' + deviceName);
+    }
+  }
+})
 
 /* GET ALL VisitorS */
 router.get('/', function(req, res, next) {
@@ -18,6 +55,11 @@ router.get('/:id', function(req, res, next) {
     res.json(post);
   });
 });
+
+// this isn't working just yet. TODO: add jade and set viewengine
+router.get('/devices', function(req, res, next) {
+  res.json(JSON.stringify(devices));
+})
 
 /* SAVE Visitor */
 router.post('/', function(req, res, next) {
