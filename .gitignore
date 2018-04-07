@@ -8,6 +8,10 @@
 # dependencies
 /node_modules
 
+# private testing
+noble-test.js
+node-bluetooth-test.js
+
 # IDEs and editors
 /.idea
 .project
