@@ -1,3 +1,19 @@
-<p>
-  visitor-log works!
-</p>
+<div class="container">
+  <h1>Visitor List</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>BID</th>
+        <th>Visits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visitor of visitors">
+        <td>{{ visitor.name }}</td>
+        <td>{{ visitor.bid }}</td>
+        <td>Show Detail</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

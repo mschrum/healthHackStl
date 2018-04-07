@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-visitor-log',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitorLogComponent implements OnInit {
 
-  constructor() { }
+  visitors: any;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get('/visitor').subscribe(data => {
+      this.visitors = data;
+    });
   }
-
 }
