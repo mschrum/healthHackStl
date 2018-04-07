@@ -13,7 +13,7 @@ import { Visitor } from './../../../classes/visitor';
 })
 export class NewLogComponent implements OnInit {
 
-  visit = {user: {name: '', id: ''}, uploaded_date: '', comments: ''};
+  visit = {user: {name: '', id: ''}, uploaded_date: 0, comments: ''};
   visitor = new Visitor;
   visitors: Visitor[];
 
@@ -26,8 +26,8 @@ export class NewLogComponent implements OnInit {
   }
 
   saveVisit(data) {
-    const visitDate = new Date();
-    this.visit.uploaded_date = visitDate.toDateString();
+    const visitDate = Date.now();
+    this.visit.uploaded_date = visitDate;
     const visitorId = this.visit.user.id;
     console.log('User Has ID: ' + this.visit.user.id);
     console.log(this.visit);
@@ -41,7 +41,7 @@ export class NewLogComponent implements OnInit {
     }
     console.log(this.visitor);
     this.visitor.visits.push(this.visit);
-    this.visit = {user: {name: '', id: ''}, uploaded_date: '', comments: ''};
+    this.visit = {user: {name: '', id: ''}, uploaded_date: 0, comments: ''};
     this.http.put('/visitor/' + visitorId, this.visitor)
       .subscribe(res => {
           this.router.navigate(['/']);

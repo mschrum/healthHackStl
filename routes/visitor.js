@@ -41,7 +41,7 @@ noble.on('discover', function(device) {
       backendVisitors.forEach(visitor => {
         if (deviceName === visitor.bid) {
           let matchedVisitor = visitor;
-          let visitDate = new Date().toDateString();
+          let visitDate = new Date();
           let visit = {
                         user: {name: matchedVisitor.name, id: matchedVisitor._id},
                         uploaded_date: visitDate,

@@ -32,4 +32,9 @@ export class VisitorHistoryComponent implements OnInit {
 
 
   }
+
+
+  parseDateToTime(date) {
+    return Date.parse(date.toString());
+  }
 }

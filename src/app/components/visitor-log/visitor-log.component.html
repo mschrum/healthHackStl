@@ -4,12 +4,14 @@
     <thead>
       <tr>
         <th>Date</th>
+        <th>Time</th>
         <th>Comments</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let visit of visitor.visits">
-        <td>{{ visit.uploaded_date }}</td>
+        <td>{{ visit.uploaded_date | date:'fullDate' }}</td>
+        <td>{{ visit.uploaded_date | date:'shortTime' }}</td>        
         <td>{{ visit.comments }}</td>
       </tr>
     </tbody>
