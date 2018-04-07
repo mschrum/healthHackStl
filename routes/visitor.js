@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var Visitor = require('../models/Visitor.js');
-const noble = require('noble');
+//const noble = require('noble');
 
 const devices = [];
 let backendVisitors;
@@ -20,8 +20,8 @@ Visitor.find(function(err, visitors) {
 
 /***************** BLUETOOTH SCANNING AND LOGIC *****************/ 
 
-noble.startScanning();
-noble.on('discover', function(device) {
+// noble.startScanning();
+// noble.on('discover', function(device) {
 
   // UNCOMMENT to get all keys of peripheral.advertisement bluetooth object
   // for (let key in device.advertisement) {
@@ -30,36 +30,36 @@ noble.on('discover', function(device) {
   //   }
   // } 
 
-  let deviceName = device.advertisement.localName;
-  if (deviceName) {
-    let deviceObject = {};
-    deviceObject[deviceName] = device.advertisement;
-    devices.push(deviceObject);
-    console.log("Found " + deviceName);
+//   let deviceName = device.advertisement.localName;
+//   if (deviceName) {
+//     let deviceObject = {};
+//     deviceObject[deviceName] = device.advertisement;
+//     devices.push(deviceObject);
+//     console.log("Found " + deviceName);
 
-    if (knownBids.indexOf(deviceName) >= 0) {
-      backendVisitors.forEach(visitor => {
-        if (deviceName === visitor.bid) {
-          let matchedVisitor = visitor;
-          let visitDate = new Date();
-          let visit = {
-                        user: {name: matchedVisitor.name, id: matchedVisitor._id},
-                        uploaded_date: visitDate,
-                        comments: 'Bluetooth Check-In'
-                      }
-          matchedVisitor.visits.push(visit);
-          Visitor.findByIdAndUpdate(matchedVisitor._id, matchedVisitor, function(err, post) {
-            if (err) return next(err);
-            console.log("Bluetooth check-in logged! " + post);
-          });
-        }
-      });
+//     if (knownBids.indexOf(deviceName) >= 0) {
+//       backendVisitors.forEach(visitor => {
+//         if (deviceName === visitor.bid) {
+//           let matchedVisitor = visitor;
+//           let visitDate = new Date();
+//           let visit = {
+//                         user: {name: matchedVisitor.name, id: matchedVisitor._id},
+//                         uploaded_date: visitDate,
+//                         comments: 'Bluetooth Check-In'
+//                       }
+//           matchedVisitor.visits.push(visit);
+//           Visitor.findByIdAndUpdate(matchedVisitor._id, matchedVisitor, function(err, post) {
+//             if (err) return next(err);
+//             console.log("Bluetooth check-in logged! " + post);
+//           });
+//         }
+//       });
 
-      console.log('FOUND SOMEONE I RECOGNIZE!! : ' + deviceName);
+//       console.log('FOUND SOMEONE I RECOGNIZE!! : ' + deviceName);
       
-    }
-  }
-})
+//     }
+//   }
+// })
 
 /****************************************************************/ 
 
