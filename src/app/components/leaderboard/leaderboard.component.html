@@ -1,3 +1,17 @@
-<p>
-  leaderboard works!
-</p>
+<div class="container">
+  <h1>Leaderboard</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Visits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let visitor of visitors">
+        <td>{{ visitor.name }}</td>
+        <td>{{ visitor.visits.length }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
