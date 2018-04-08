@@ -1,26 +1,29 @@
 <div class="form-container container-bg">
-<div class="infoSection">
-  <h1>Submit Your Visit</h1>
-  <h5>Complete the form below to detail your visit.<br>
-  Please note that some fields are required in order for
-  your visit to be logged.</h5>
-</div>
+  <div class="infoSection">
+    <h1>Submit Your Visit</h1>
+    <h5>Complete the form below to detail your visit.
+      <br> Please note that some fields are required in order for your visit to be logged.</h5>
+  </div>
 
-<div>
-  <form (ngSubmit)="saveVisit()" #visitForm="ngForm">
-    <div class="form-group">
-      <label>Visitor
-        <select id="visitor" name="visitor" class="form-control drop-down" ng-required="true" [(ngModel)]="visit.user.id">
-          <option *ngFor="let visitor of visitors" name="visitors" [value]="visitor._id">{{visitor.name}}</option>
-        </select>
-      </label>
-    </div>  
-    <div class="form-group">
-      <label for="comment">Add a Comment</label>
-      <input type="text" class="form-control" name="comment" [(ngModel)]="visit.comments" required>
-    </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-success" [disabled]="!ideaForm.form.valid">Submit</button>
-    </div>
-  </form>
-</div>
+  <div>
+    <form (ngSubmit)="saveVisit()" #visitForm="ngForm">
+      <div class="form-group">
+        <label>Visitor
+          <select id="visitor" name="visitor" class="form-control drop-down" ng-required="true" [(ngModel)]="visit.user.id">
+            <option *ngFor="let visitor of visitors" name="visitors" [value]="visitor._id">{{visitor.name}}</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="comment">Add a Comment</label>
+        <span>
+          <textarea class="form-control" name="comment" [(ngModel)]="visit.comments" required></textarea>
+          <button (click)="startButton($event)">Record</button>
+        </span>
+        <div *ngIf="notification" class="notification">{{notification}}</div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
