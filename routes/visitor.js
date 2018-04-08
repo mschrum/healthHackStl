@@ -12,7 +12,9 @@ Visitor.find(function(err, visitors) {
   if (err) return next(err);
   backendVisitors = visitors;
   visitors.forEach(visitor => {
-    knownBids.push(visitor.bid);
+    let insensitiveBid = visitor.bid.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+    knownBids.push(insensitiveBid);
+    console.log(`Adding ${insensitiveBid} to knownBids`);
   });
   console.log(backendVisitors);
   console.log(knownBids);
@@ -22,16 +24,18 @@ Visitor.find(function(err, visitors) {
 
 noble.startScanning();
 noble.on('discover', function(device) {
-  let deviceName = device.advertisement.localName;
-  if (deviceName) {
+  if (device.advertisement.localName) {
+    let deviceName = device.advertisement.localName.toString().toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
     let deviceObject = {};
     deviceObject[deviceName] = device.advertisement;
     devices.push(deviceObject);
     console.log("Found " + deviceName);
-
     if (knownBids.indexOf(deviceName) >= 0) {
+      console.log('FOUND SOMEONE I RECOGNIZE!! : ' + deviceName);
       backendVisitors.forEach(visitor => {
-        if (deviceName === visitor.bid) {
+        console.log(`Visitor BID is : ${visitor.bid}`)
+        let insensitiveBid = visitor.bid.toString().toLowerCase().trim().replace(/[^a-zA-Z0-9]/g, "");
+        if (deviceName === insensitiveBid) {
           let matchedVisitor = visitor;
           let visitDate = Date.now();
           let visit = {
@@ -40,15 +44,17 @@ noble.on('discover', function(device) {
                         comments: 'Bluetooth Check-In'
                       }
           matchedVisitor.visits.push(visit);
+
           Visitor.findByIdAndUpdate(matchedVisitor._id, matchedVisitor, function(err, post) {
-            if (err) return next(err);
+            if (err) {
+              return next(err);
+            }
             console.log("Bluetooth check-in logged! " + post);
           });
         }
       });
-
-      console.log('FOUND SOMEONE I RECOGNIZE!! : ' + deviceName);
-      
+     } else {
+       console.log(deviceName + " did not match any of: " + knownBids);
      }
    }
  })
