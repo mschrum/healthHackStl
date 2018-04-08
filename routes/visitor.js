@@ -8,17 +8,26 @@ const devices = [];
 let backendVisitors;
 let knownBids = [];
 
-Visitor.find(function(err, visitors) {
-  if (err) return next(err);
-  backendVisitors = visitors;
-  visitors.forEach(visitor => {
-    let insensitiveBid = visitor.bid.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
-    knownBids.push(insensitiveBid);
-    console.log(`Adding ${insensitiveBid} to knownBids`);
-  });
-  console.log(backendVisitors);
-  console.log(knownBids);
-})
+let getUpdatedVisitors = () => {
+  Visitor.find(function(err, visitors) {
+    if (err) return next(err);
+    backendVisitors = visitors;
+    visitors.forEach(visitor => {
+      let insensitiveBid = visitor.bid.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+      if (knownBids.indexOf(insensitiveBid) === -1) {
+        knownBids.push(insensitiveBid);
+        console.log(`Adding ${insensitiveBid} to knownBids`);
+      }
+    });
+    console.log(knownBids);
+  })
+}
+getUpdatedVisitors();
+
+setInterval(() => {
+  getUpdatedVisitors();
+}, 4000);
+
 
 /***************** BLUETOOTH SCANNING AND LOGIC *****************/ 
 
