@@ -1,0 +1,16 @@
+<div class="center">
+  
+  <div class="center">
+    <button (click)="startButton($event)">
+      Record
+    </button>
+  </div>
+  
+  <form>
+      <div class="form-group">
+          <label for="comment">Translation</label>
+          <textarea [value]="finalTranscript" placeholder="Speech Input Result" rows="15" disabled="true"></textarea>
+        </div>
+  </form>
+  
+  <div *ngIf="notification" class="notification">{{notification}}</div>

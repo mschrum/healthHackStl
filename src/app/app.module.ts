@@ -10,13 +10,14 @@ import { NewLogComponent } from './components/new-log/new-log.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { VisitorService } from './services/visitor.service';
 import { AuthenticationService } from './services/authentication.service';
+import { SpeechRecognizerService } from './services/speech-recognizer.service';
 import { Http } from '@angular/http';
 import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { VisitorHistoryComponent } from './components/visitor-history/visitor-history.component';
-
+import { WebSpeechComponent } from './components/web-speech/web-speech.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { VisitorHistoryComponent } from './components/visitor-history/visitor-hi
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    VisitorHistoryComponent
+    VisitorHistoryComponent,
+    WebSpeechComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { VisitorHistoryComponent } from './components/visitor-history/visitor-hi
   ],
   providers: [
     VisitorService,
-    AuthenticationService
+    AuthenticationService,
+    SpeechRecognizerService
   ],
   bootstrap: [AppComponent]
 })

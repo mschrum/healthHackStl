@@ -6,9 +6,10 @@ import { LoginComponent } from '../components/login/login.component';
 import { LeaderboardComponent } from '../components/leaderboard/leaderboard.component';
 import { NewLogComponent } from '../components/new-log/new-log.component';
 import { RegisterComponent } from '../components/register/register.component';
-
+import { WebSpeechComponent } from '../components/web-speech/web-speech.component';
 
 const routes: Routes = [
+  { path: 'speech', component: WebSpeechComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'leaderboard', component: LeaderboardComponent },
