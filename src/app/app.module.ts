@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { VisitorHistoryComponent } from './components/visitor-history/visitor-history.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { VisitorHistoryComponent } from './components/visitor-history/visitor-hi
     RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    VisitorHistoryComponent
+    VisitorHistoryComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
