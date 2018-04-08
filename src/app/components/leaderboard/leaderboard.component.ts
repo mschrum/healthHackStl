@@ -18,8 +18,10 @@ export class LeaderboardComponent implements OnInit {
   ngOnInit() {
     this.http.get('/visitor').subscribe((data: Visitor[]) => {
       this.visitors = data;
+      this.visitors.sort(
+        function(a, b) {return (a.visits.length > b.visits.length) ? 1 : ((b.visits.length > a.visits.length) ? -1 : 0); });
+      this.visitors.reverse();
     });
-    this.visitors.sort(function(a, b) {return (a.visits.length > b.visits.length) ? 1 : ((b.visits.length > a.visits.length) ? -1 : 0); });
   }
 
 }
