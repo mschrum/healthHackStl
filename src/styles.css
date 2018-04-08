@@ -2,6 +2,7 @@
 
 body {
     font-family: "Work Sans", Arial, sans-serif;
+    color: #606060;
 }
 
 .default-bg {
@@ -80,4 +81,10 @@ nav .nav-item {
  .site {
      height: 100vh;
      box-sizing: border-box;
+ }
+
+ .title-border {
+     max-width: 100px;
+     border-width: 5px;
+     border-color: #ff3300;
  }
