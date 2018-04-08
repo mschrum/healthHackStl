@@ -88,3 +88,9 @@ nav .nav-item {
      border-width: 5px;
      border-color: #ff3300;
  }
+
+ /* Animate */
+ .bootstrap-animate {
+    opacity: 0;
+    visibility: hidden; 
+}

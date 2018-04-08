@@ -17,7 +17,7 @@
         <label for="comment">BluetoothID</label>
         <input type="text" class="form-control" name="comment" [(ngModel)]="visitor.bid" required>
       </div>
-      <div class="form-group">
+      <div class="form-group text-center">
         <button (click)="registerVisitor()" [routerLink]="['/visitHistory']" type="submit" class="btn btn-success" [disabled]="!ideaForm.form.valid">Submit</button>
       </div>
     </form>
