@@ -2,6 +2,12 @@
 
 body {
     font-family: "Work Sans", Arial, sans-serif;
+    color: #606060;
+}
+
+.title-style {
+    font-weight: 300;
+    color: black;
 }
 
 .default-bg {
@@ -81,3 +87,15 @@ nav .nav-item {
      height: 100vh;
      box-sizing: border-box;
  }
+
+ .title-border {
+     max-width: 500px;
+     border-width: 5px;
+     border-color: #ff3300;
+ }
+
+ /* Animate */
+ .bootstrap-animate {
+    opacity: 0;
+    visibility: hidden; 
+}

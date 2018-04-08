@@ -1,6 +1,6 @@
 <div class="container container-bg">
-  <h1>Visit History</h1>
-  <table class="table">
+  <h1 class="text-center title-style">Visit History</h1>
+  <table id="table" class="table" data-pagination="true" data-id-field="name" data-page-list="[5, 10, 25, 50, 100, ALL]" data-page-size="5">
     <thead>
       <tr>
         <th>Name</th>
@@ -18,4 +18,22 @@
           </tr>
     </tbody>
   </table>
+  <ul class="pagination pagination-sm justify-content-end">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previously</span>
+      </a>
+    </li>
+    <li class="page-item active"><a class="page-link" [routerLink]="['/visitHistory']">1</a></li>
+    <li class="page-item"><a class="page-link" [routerLink]="['/visitHistory']">2</a></li>
+    <li class="page-item"><a class="page-link" [routerLink]="['/visitHistory']">3</a></li>
+    <li class="page-item"><a class="page-link" [routerLink]="['/visitHistory']">4</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
 </div>
