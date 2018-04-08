@@ -5,6 +5,11 @@ body {
     color: #606060;
 }
 
+.title-style {
+    font-weight: 300;
+    color: black;
+}
+
 .default-bg {
     background-image: url('assets/images/login-bg.jpg');
     background-repeat: no-repeat;
@@ -84,7 +89,7 @@ nav .nav-item {
  }
 
  .title-border {
-     max-width: 100px;
+     max-width: 500px;
      border-width: 5px;
      border-color: #ff3300;
  }
