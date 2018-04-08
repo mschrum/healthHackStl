@@ -12,9 +12,9 @@
     <tbody>
         <tr *ngFor="let visit of visits">
             <a [routerLink]="['/visitorLog/'+visit.user.id]"><td>{{ visit.user.name }}</td></a>
-            <td>{{ visit.uploaded_date | date:'mediumDate' }}</td>
-            <td>{{ visit.uploaded_date | date:'shortTime' }}</td>
-            <td>{{ visit.comments }}</td>                        
+            <td class="table-column-width">{{ visit.uploaded_date | date:'mediumDate' }}</td>
+            <td class="table-column-width">{{ visit.uploaded_date | date:'shortTime' }}</td>
+            <td class="table-column-width">{{ visit.comments }}</td>                        
           </tr>
     </tbody>
   </table>
@@ -26,10 +26,7 @@
       </a>
     </li>
     <li class="page-item active"><a class="page-link" [routerLink]="['/visitHistory']">1</a></li>
-    <li class="page-item"><a class="page-link" [routerLink]="['/visitHistory']">2</a></li>
-    <li class="page-item"><a class="page-link" [routerLink]="['/visitHistory']">3</a></li>
-    <li class="page-item"><a class="page-link" [routerLink]="['/visitHistory']">4</a></li>
-    <li class="page-item">
+    <li class="page-item disabled">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>

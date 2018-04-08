@@ -92,6 +92,10 @@ nav .nav-item {
      border-width: 5px;
      border-color: #ff3300;
  }
+ 
+ .table-column-width {
+     min-width: 115px;
+ }
 
  /* Animate */
  .bootstrap-animate {

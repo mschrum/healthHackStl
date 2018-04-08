@@ -10,8 +10,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let visit of visitor.visits">
-        <td>{{ visit.uploaded_date | date:'fullDate' }}</td>
-        <td>{{ visit.uploaded_date | date:'shortTime' }}</td>        
+        <td class="table-column-width">{{ visit.uploaded_date | date:'fullDate' }}</td>
+        <td class="table-column-width">{{ visit.uploaded_date | date:'shortTime' }}</td>        
         <td>{{ visit.comments }}</td>
       </tr>
     </tbody>
@@ -24,9 +24,7 @@
         </a>
       </li>
       <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" [routerLink]="['/visitorlog']">2</a></li>
-      <li class="page-item"><a class="page-link" [routerLink]="['/visitorlog']">3</a></li>
-      <li class="page-item">
+      <li class="page-item disabled">
         <a class="page-link" href="#" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only">Next</span>
