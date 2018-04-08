@@ -22,6 +22,7 @@ export class NewLogComponent implements OnInit {
   visitor = new Visitor;
   visitors: Visitor[];
 
+  finalTranscript = '';
   recognizing = false;
   notification: string;
   currentLanguage = 'en-US';
@@ -41,6 +42,7 @@ export class NewLogComponent implements OnInit {
 
   saveVisit(data) {
     const visitDate = Date.now();
+    this.visit.comments = this.finalTranscript;
     this.visit.uploaded_date = visitDate;
     const visitorId = this.visit.user.id;
     console.log('User Has ID: ' + this.visit.user.id);
@@ -90,11 +92,10 @@ export class NewLogComponent implements OnInit {
     this.speechRecognizer.onResult()
       .subscribe((data: SpeechNotification) => {
         const message = data.content.trim();
-        if (data.info === this.visit.comments && message.length > 0) {
-          this.visit.comments = `${this.visit.comments}\n${message}`;
+        if (data.info === 'finalTranscript' && message.length > 0) {
+          this.finalTranscript = `${this.finalTranscript}\n${message}`;
           this.actionContext.processMessage(message, this.currentLanguage);
           this.detectChanges();
-          this.actionContext.runAction(message, this.currentLanguage);
         }
       });
 

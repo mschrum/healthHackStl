@@ -1,6 +1,6 @@
 <div class="form-container container-bg">
   <div class="infoSection">
-    <h1>Submit Your Visit</h1>
+    <h1 class="text-center title-style">Record Your Visit</h1>
     <h5>Complete the form below to detail your visit.
       <br> Please note that some fields are required in order for your visit to be logged.</h5>
   </div>
@@ -9,7 +9,7 @@
     <form (ngSubmit)="saveVisit()" #visitForm="ngForm">
       <div class="form-group">
         <label>Visitor
-          <select id="visitor" name="visitor" class="form-control drop-down" ng-required="true" [(ngModel)]="visit.user.id">
+          <select id="visitor" style="width:100px;" name="visitor" class="form-control drop-down" ng-required="true" [(ngModel)]="visit.user.id">
             <option *ngFor="let visitor of visitors" name="visitors" [value]="visitor._id">{{visitor.name}}</option>
           </select>
         </label>
@@ -17,12 +17,14 @@
       <div class="form-group">
         <label for="comment">Add a Comment</label>
         <span>
-          <textarea class="form-control" name="comment" [(ngModel)]="visit.comments" required></textarea>
-          <button (click)="startButton($event)">Record</button>
+          <textarea class="form-control" name="comment" [value]="finalTranscript" required></textarea>
+          <button (click)="startButton($event)">
+            <i class="fas fa-microphone"> </i> 
+          </button>
         </span>
         <div *ngIf="notification" class="notification">{{notification}}</div>
       </div>
-      <div class="form-group">
+      <div class="form-group text-center">
         <button type="submit" class="btn btn-success">Submit</button>
       </div>
     </form>

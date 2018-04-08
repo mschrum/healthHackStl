@@ -1,7 +1,6 @@
 import { ActionStrategy } from './action-strategy';
 import { Theme } from '../theme';
 import { Action } from '../action';
-import { StyleManager } from '../../models/style-manager';
 import { SpeechSynthesizerService } from '../../services/speech-synthesizer.service';
 
 export class ChangeColorStrategy extends ActionStrategy {
@@ -14,7 +13,6 @@ export class ChangeColorStrategy extends ActionStrategy {
 
     private mapThemes: Map<string, Theme[]> = new Map<string, Theme[]>();
 
-    private styleManager: StyleManager = new StyleManager();
     private speechSynthesizer: SpeechSynthesizerService = new SpeechSynthesizerService();
 
     constructor() {
@@ -86,17 +84,5 @@ export class ChangeColorStrategy extends ActionStrategy {
     }
     getFinishResponse(language: string): string {
         return this.mapFinishResponse.get(language);
-    }
-
-    runAction(input: string, language: string): void {
-        let theme = this.mapThemes.get(language).find((theme) => {
-          return input.toLocaleLowerCase() === theme.keyword;
-        });
-
-        if (theme) {
-          this.styleManager.removeStyle('theme');
-          this.styleManager.setStyle('theme', `assets/theme/${theme.href}`);
-          this.speechSynthesizer.speak(`${this.mapActionDone.get(language)}: ${theme.keyword}`, language);
-        }
     }
 }

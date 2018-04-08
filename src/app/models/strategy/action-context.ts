@@ -17,12 +17,6 @@ export class ActionContext {
         }
     }
 
-    runAction(input: string, language: string) {
-        if (this.currentStrategy) {
-            this.currentStrategy.runAction(input, language);
-        }
-    }
-
     setStrategy(strategy: ActionStrategy) {
         this.currentStrategy = strategy;
     }
