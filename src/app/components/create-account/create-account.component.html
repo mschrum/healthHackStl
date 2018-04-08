@@ -1,0 +1,21 @@
+<div class="form-container container-bg">
+  <div>
+    <form #createAccountForm="ngForm">
+      <div class="form-group">
+        <label for="name">User Name</label>
+        <input type="text" class="form-control" name="userName" required>
+      </div>  
+      <div class="form-group">
+        <label for="comment">Password</label>
+        <input type="password" class="form-control" name="password" required>
+      </div>
+      <div class="form-group">
+          <label for="comment">Confirm Password</label>
+          <input type="password" class="form-control" name="confirmPassword" required>
+        </div>
+      <div class="form-group text-center">
+        <button (click)="createAccount()" [routerLink]="['/visitHistory']" type="submit" class="btn btn-success" [disabled]="!ideaForm.form.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
