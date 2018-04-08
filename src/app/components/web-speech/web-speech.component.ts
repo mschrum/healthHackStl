@@ -64,7 +64,6 @@ export class WebSpeechComponent implements OnInit {
           this.finalTranscript = `${this.finalTranscript}\n${message}`;
           this.actionContext.processMessage(message, 'en-us');
           this.detectChanges();
-          //this.actionContext.runAction(message, this.currentLanguage);
         }
       });
 
