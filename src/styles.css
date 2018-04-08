@@ -5,6 +5,14 @@ body {
     color: #606060;
 }
 
+.nav-link {
+    transition: 0.5s !important;
+}
+
+.nav-link:hover {
+    color: rgb(70, 156, 253) !important;
+}
+
 .title-style {
     font-weight: 300;
     color: black;
@@ -15,6 +23,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .navbar-brand {
