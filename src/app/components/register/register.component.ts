@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
     this.http.post('/visitor', this.visitor)
     .subscribe(res => {
         const id = res['_id'];
-        this.router.navigate(['/']);
+        this.router.navigate(['/visitHistory']);
       }, (err) => {
         console.log(err);
       }
